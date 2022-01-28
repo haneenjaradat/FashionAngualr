@@ -1,0 +1,212 @@
+HTML CSSResult Skip Results Iframe body {
+    /* body margin zero is needed or else it will create overflow */
+    margin: 0 !important;
+}
+
+#video-container {
+    height: 100vh !important;
+    width: 100%;
+    overflow: hidden !important;
+    z-index: 1 !important;
+    position: relative;
+}
+
+video.fillWidth {
+    width: 100% !important;
+    min-height: 100% !important;
+    min-width: 100% !important;
+}
+
+.content {
+    z-index: 50 !important;
+    position: absolute;
+    width: 50% !important;
+    overflow-x: hidden !important;
+    padding-top: 100px;
+    color: #fff !important;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.548);
+    text-align: center;
+    margin: 200px;
+}
+
+.contenedor {
+    -webkit-perspective: 500px;
+    perspective: 500px;
+    perspective-origin: 50% 50%;
+}
+
+.cube,
+.cube .card {
+    height: 290px;
+    width: 290px;
+}
+
+.cube {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-30deg) rotateY(30deg);
+    transform: rotateX(-30deg) rotateY(-30deg);
+    margin: 150px auto;
+    -webkit-animation: giro 20s infinite linear;
+    animation: giro 20s infinite linear;
+}
+
+.cube .card {
+    position: absolute;
+    border: 5px solid #ccc;
+    opacity: 0.85;
+    transition: 0.2s;
+}
+
+
+/* Pause animation on hover */
+
+.cube:hover {
+    animation-play-state: paused;
+}
+
+.cube:hover .card {
+    opacity: 1;
+    transition: 0.2s;
+}
+
+
+/*card frontal*/
+
+.cube .card:nth-child(1) {
+    -webkit-transform: translateZ(150px);
+    transform: translateZ(150px);
+}
+
+
+/*card posterior*/
+
+.cube .card:nth-child(2) {
+    -webkit-transform: rotateY(180deg) translateZ(150px);
+    transform: rotateY(180deg) translateZ(150px);
+}
+
+
+/*card izquierda*/
+
+.cube .card:nth-child(3) {
+    -webkit-transform: rotateY(-90deg) translateZ(150px);
+    transform: rotateY(-90deg) translateZ(150px);
+}
+
+
+/*card derecha*/
+
+.cube .card:nth-child(4) {
+    -webkit-transform: rotateY(90deg) translateZ(150px);
+    transform: rotateY(90deg) translateZ(150px);
+}
+
+
+/*card superior*/
+
+.cube .card:nth-child(5) {
+    -webkit-transform: rotateX(90deg) translateZ(150px);
+    transform: rotateX(90deg) translateZ(150px);
+}
+
+
+/*card inferior*/
+
+.cube .card:nth-child(6) {
+    -webkit-transform: rotateX(-90deg) translateZ(150px);
+    transform: rotateX(-90deg) translateZ(150px);
+}
+
+@-webkit-keyframes giro {
+    0% {
+        -webkit-transform: rotateX(-45deg) rotateY(0deg);
+    }
+    50% {
+        -webkit-transform: rotateX(45deg) rotateY(360deg);
+    }
+    100% {
+        -webkit-transform: rotateX(-45deg) rotateY(720deg);
+    }
+}
+
+@keyframes giro {
+    0% {
+        transform: rotateX(-45deg) rotateY(0deg);
+    }
+    50% {
+        transform: rotateX(45deg) rotateY(360deg);
+    }
+    100% {
+        transform: rotateX(-45deg) rotateY(720deg);
+    }
+}
+
+@-webkit-keyframes giro360 {
+    0% {
+        -webkit-transform: rotateX( 0deg) rotateY( 0deg);
+    }
+    100% {
+        -webkit-transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+@keyframes giro360 {
+    0% {
+        transform: rotateX( 0deg) rotateY( 0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+
+/*rotate*/
+
+.test {
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 2rem;
+    margin: 10px;
+}
+
+.test[_ngcontent-onq-c17]::after {
+    width: 0;
+}
+
+.test::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #399953;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#aa9166, #aa9166), linear-gradient(#0e0d0c, #0e0d0c), linear-gradient(#aa9166, #aa9166), linear-gradient(#0e0d0c, #0e0d0c);
+    animation: rotate 4s linear infinite;
+}
+
+.test::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 5px;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
